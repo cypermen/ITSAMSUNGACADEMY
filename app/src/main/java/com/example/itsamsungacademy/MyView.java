@@ -2,6 +2,7 @@ package com.example.itsamsungacademy;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.View;
 
@@ -17,10 +18,10 @@ public class MyView extends View {
 
             Paint paint = new Paint();
 
-        int y = 0;
-        while(y < getHeight()){
-            canvas.drawLine(0,y ,getWidth() ,y ,paint);
-            y += 10;
-        }
+            paint.setColor(Color.GREEN);
+            paint.setStrokeWidth(5);
+
+            canvas.drawLine(0,0,getWidth(),getHeight(),paint);
+
     }
 }
