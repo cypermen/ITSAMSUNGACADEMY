@@ -14,12 +14,19 @@ public class MyView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-            super.onDraw(canvas);
+        super.onDraw(canvas);
 
         Paint paint = new Paint();
+
         paint.setColor(Color.BLUE);
-        paint.setStyle(Paint.Style.FILL);
-        canvas.drawRect(100, 100, 300, 300, paint);
+
+
+        int n = 40;
+
+        for(int i = 0; i < n;i++){//diagonal lines
+            canvas.drawLine(canvas.getWidth()*((i*1.0f)/n),0,canvas.getWidth(),canvas.getHeight()*(1 - (i*1.0f/n)),paint);
+            canvas.drawLine(0,canvas.getHeight()*(i*1.0f/n),canvas.getWidth()*(1-(i*1.0f/n)),canvas.getHeight(),paint);
+        }
 
     }
 }
