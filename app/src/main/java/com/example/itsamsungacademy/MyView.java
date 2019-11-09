@@ -15,18 +15,35 @@ public class MyView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
         Paint paint = new Paint();
+        Paint paint1 = new Paint();
+        paint.setColor(Color.RED);
+        paint1.setColor(Color.BLUE);
+        paint.setStrokeWidth(10);
+        paint1.setStrokeWidth(10);
 
-        paint.setColor(Color.BLUE);
+        //red rhombuses
+        canvas.drawLine(canvas.getWidth()*1.0f / 4,0,0,canvas.getHeight()*1.0f / 4,paint);
+        canvas.drawLine(0,canvas.getHeight()*1.0f / 4,canvas.getWidth()*1.0f*(3*1.0f/4),canvas.getHeight(),paint);
+        canvas.drawLine(canvas.getWidth()*1.0f / 4,0,canvas.getWidth(),canvas.getHeight()*1.0f*(3*1.0f/4),paint);
+        canvas.drawLine(canvas.getWidth(),canvas.getHeight()*1.0f*(3*1.0f / 4),canvas.getWidth()*1.0f*(3*1.0f / 4),canvas.getHeight(),paint);
+        canvas.drawLine(canvas.getWidth()*1.0f * (3*1.0f / 4),0,0,canvas.getHeight()*1.0f * (3*1.0f / 4),paint);
+        canvas.drawLine(canvas.getWidth()*1.0f * (3*1.0f / 4),0,canvas.getWidth(),canvas.getHeight()*1.0f / 4,paint);
+        canvas.drawLine(canvas.getWidth(),canvas.getHeight()*1.0f / 4 ,canvas.getWidth()*1.0f / 4 ,canvas.getHeight(),paint);
+        canvas.drawLine(0,canvas.getHeight()*1.0f * (3*1.0f / 4),canvas.getWidth()*1.0f / 4,canvas.getHeight(),paint);
 
 
-        int n = 40;
+        //blue rhombuses
+        canvas.drawLine(canvas.getWidth()*1.0f / 2 ,0,canvas.getWidth(),canvas.getHeight()*1.0f / 2,paint1);
+        canvas.drawLine(canvas.getWidth()*1.f / 2 ,0,0,canvas.getHeight()*1.0f / 2,paint1);
+        canvas.drawLine(canvas.getWidth()*1.0f / 2,canvas.getHeight(),0,canvas.getHeight()*1.0f / 2,paint1);
+        canvas.drawLine(canvas.getWidth()*1.0f / 2,canvas.getHeight(),canvas.getWidth(),canvas.getHeight()*1.0f / 2,paint1);
+        canvas.drawLine(canvas.getWidth()*1.0f / 4,canvas.getHeight()*1.0f / 4,canvas.getWidth()*1.0f * (3*1.0f / 4),canvas.getHeight()*1.0f * (3*1.0f / 4),paint1);
+        canvas.drawLine(getWidth()*0.75f,getHeight()*0.25f,getWidth()*0.25f,getHeight()*0.75f,paint1);
 
-        for(int i = 0; i < n;i++){//diagonal lines
-            canvas.drawLine(canvas.getWidth()*((i*1.0f)/n),0,canvas.getWidth(),canvas.getHeight()*(1 - (i*1.0f/n)),paint);
-            canvas.drawLine(0,canvas.getHeight()*(i*1.0f/n),canvas.getWidth()*(1-(i*1.0f/n)),canvas.getHeight(),paint);
-        }
+
+
+
 
     }
 }
