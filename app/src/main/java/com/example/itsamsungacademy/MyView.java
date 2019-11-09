@@ -15,7 +15,12 @@ public class MyView extends View {
     protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
 
-        Paint paint = new Paint();
-        canvas.drawLine(0,0,getWidth(),getHeight(),paint);
+            Paint paint = new Paint();
+
+        int y = 0;
+        while(y < getHeight()){
+            canvas.drawLine(0,y ,getWidth() ,y ,paint);
+            y += 10;
+        }
     }
 }
