@@ -7,23 +7,46 @@ import android.graphics.Paint;
 import android.view.View;
 
 public class MyView extends View {
+    Paint paint = new Paint();
+    int N = 10;
+    float[] x  = new float[N];
+    float[] y  = new float[N];
+    float[] vx = new float[N];
+    float[] vy = new float[N];
 
     public MyView(Context context) {
         super(context);
+        for (int i = 0; i < N; i++){
+            x[i] = (float)(Math.random() * 500);
+            y[i] = (float)(Math.random() * 500);
+            vx[i] = (float)(Math.random() * 6 - 3);
+            vy[i] = (float)(Math.random() * 6 - 3);
+        }
     }
 
-    Paint paint = new Paint();
-    float x = 0;
 
-    long lastTime = System.currentTimeMillis();
+
+    boolean started = false;
     @Override
     protected void onDraw(Canvas canvas){
-        canvas.drawCircle(x, 300, 20, paint);
+        if (!started){
+            for (int i = 0; i < N; i++){
+                x[i] = (float)(Math.random() * getWidth());
+                y[i] = (float)(Math.random() * getHeight());
+                vx[i] = (float)(Math.random() * 6 - 3);
+                vy[i] = (float)(Math.random() * 6 - 3);
+            }
+            started = true;
+        }
+        for (int i = 0; i < N; i++) {
+            canvas.drawCircle(x[i], y[i], 20, paint);
+        }
 
-        long nowTime = System.currentTimeMillis();
-        x += 0.01f * (nowTime - lastTime);
+        for (int i = 0; i < N; i++) {
+            x[i] += vx[i];
+            y[i] += vy[i];
+        }
 
-        lastTime = nowTime;
         invalidate();
     }
 }
