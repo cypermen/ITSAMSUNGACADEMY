@@ -1,15 +1,17 @@
-package com.example.itsamsungacademy;
+package com.example.homework;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+        import android.content.Intent;
+        import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        setContentView(new MyView(this));
+        Intent intent = new Intent(this, MineSweeper.class);
+        this.startActivity(intent);
+        finish();
     }
 }
